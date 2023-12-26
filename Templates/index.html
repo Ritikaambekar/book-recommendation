@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+
+    <!-- <------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@900&family=Poppins:ital,wght@0,200;0,500;1,300;1,400&family=Sacramento&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+    
+</head>
+
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md" >
+        <div class="container-fluid"><a class="navbar-brand" style="position: absolute; margin-top:8px; margin-left: 10px; font-size: 35px;font-weight: bold;text-align: center;">Book Recommender</a></div>
+    </nav>
+
+    <div style="height: 128px;">
+        <div class="search-headings" style="height: 43px;margin-top: 31px;"><span style="margin: 67px;font-weight: bold;margin-top: 116px;margin-left: 528px;font-size: 35px;">Discover Books you'll love!</span></div>
+        <div class="search-bar" >
+            <div style="margin-left: 11px;">
+                <i class="fa fa-search fa-lg" style=" margin-top: 7px; font-size=10px"></i><form action="/recommend_books" method="post" style="margin-top: -23px; margin-left: 30px;border-style: none;width: 288.4px;">
+                <input name="user_input" type="text" class="form-control" type="search" style="border-style: none;width: 288.4px; font-size: 21px; width: 480px;"></form>
+                
+            </div>
+        </div>
+    </div>
+
+    <hr width="100%" size="2">
+
+    <div class="search-result">
+        {% if  SearchedResultTrue %}
+
+            <div>
+            <span style="font-weight: bold;margin-left: 20px ;margin-top: 116px;font-size: 25px;">Search results</span>
+
+            </div>
+                
+            {% for i in SearchedResult %}
+                <div class="col-md-3 animated-card" style="margin-top: 50px;">
+                    <div class="card">
+                    <img class="card-img-top" src="{{ i[3] }}" alt="{{ i[1] }}" style="width: 100%; height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i[1] }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Ratings: {{ i[5] }}</h6>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        {% endif %}
+    </div>
+
+    <hr width="100%" size="2">
+    <hr>
+
+    <div>
+        {% if RecommendsTrue %}
+
+        
+            <div>
+             <span style="font-weight: bold;margin-left: 20px ;margin-top: 116px;font-size: 25px;">You might also like</span>
+
+            </div>
+
+            {% for i in Recommends %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body" style="box-shadow: 0px 7px 7px rgb(0, 0, 0);">
+                            <img class="card-img-top" src="{{i[3]}}">
+                            <p class="text-white">{{i[1]}}</p>
+                            <h4 class="text-white">Ratings: {{i[5]}}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% endif %}
+
+    </div>
+
+    <div>
+        {% if RecommendsTrue %}
+
+        {% else %}
+
+        <div class="no-results-section">
+            <h2 class="no-results-title">No results found</h2>
+            <p class="no-results-text">We couldn't find any recommendations or search results matching your criteria.</p>
+            <div class="no-results-actions">
+            
+            </div>
+        </div>
+
+        {% endif %}
+    </div>
+
+
+
+    <footer>
+       
+    </footer>
+
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+</body>
+
+</html>

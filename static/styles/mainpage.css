@@ -1,0 +1,122 @@
+
+* {
+ 
+   font-family: 'Poppins', sans-serif;
+   font-weight: 500 ;
+   font-style: italic;
+  
+
+
+}
+
+
+nav {
+    color: yellow;
+    background-color: #9BB8CD;
+    box-shadow: 0px 7px 7px #092635;
+    height: 71.4px;
+}
+
+
+
+
+.search-headings{
+
+    color: black;;
+   
+    
+}
+
+.search-bar{
+
+    height: 50px;
+    border-width: 6.4px;
+    border-style: solid;
+    width: 349.6px;
+    border-radius: 17px;
+    margin-left: 474px;
+    margin-top: 28px; 
+    width: 550px; 
+}
+
+.search-result {
+
+    transition: all ease-out 5s;
+
+}
+
+.card {
+    border: none; /* Remove default border */
+    box-shadow: 0px 7px 7px rgb(0, 0, 0);
+    overflow: hidden; /* Ensure image doesn't overflow container */
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card-img-top {
+    object-fit: cover; /* Maintain aspect ratio while covering container */
+  }
+  
+  .card-body {
+    padding: 1.25rem;
+    background-color: #092635; /* Dark background for white text */
+    color: #fff;
+  }
+  
+  .card-title {
+    font-weight: 500;
+  }
+  
+  .card-subtitle {
+    font-size: 85%;
+  }
+  
+  /* Animation for cards (optional) */
+  .animated-card {
+    animation: slide-in 0.5s ease-in-out;
+  }
+  
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+.card:hover{
+
+    transform: translateY(-10px); /* Apply subtle upward movement on hover */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+  
+
+}
+
+.no-results-section {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .no-results-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .no-results-text {
+    font-size: 16px;
+    color: #888;
+    line-height: 1.5;
+  }
+  
+  .no-results-actions {
+    margin-top: 30px;
+  }
+  
+  .no-results-actions a {
+    margin-right: 10px;
+  }
